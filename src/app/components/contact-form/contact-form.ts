@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Contato, ContatoService } from '../../services/contato';
 
 @Component({
+  standalone: false,
   selector: 'app-contact-form',
   templateUrl: './contact-form.html',
   styleUrls: ['./contact-form.css']
