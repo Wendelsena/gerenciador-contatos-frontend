@@ -9,12 +9,12 @@
         (keyup.enter)="onSearch()"
       />
     </div>
-      <div class="col-md-3">
-        <select #sel class="form-select" (change)="onCategoriaChange(sel.value)">
-          <option value="">Todas as categorias</option>
-          <option *ngFor="let cat of categorias" [value]="cat">{{ cat }}</option>
-        </select>
-      </div>
+    <div class="col-md-3">
+      <select #sel class="form-select" (change)="onCategoriaChange(sel.value)">
+        <option value="">Todas as categorias</option>
+        <option *ngFor="let cat of categorias" [value]="cat">{{ cat }}</option>
+      </select>
+    </div>
     <div class="col-md-3">
       <button
         class="btn"
@@ -27,7 +27,10 @@
   </div>
 
   <div class="row">
-    <div *ngFor="let contato of contatos" class="col-md-4 mb-3">
+    <div
+      *ngFor="let contato of contatos"
+      class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3"
+    >
       <div class="card h-100">
         <div class="card-body">
           <h5 class="card-title">

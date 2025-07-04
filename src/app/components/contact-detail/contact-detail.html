@@ -1,3 +1,9 @@
+<div class="container my-4" *ngIf="!contato">
+  <div class="text-center my-5">
+    <div class="spinner-border" role="status"></div>
+  </div>
+</div>
+
 <div class="container my-4" *ngIf="contato">
   <h3>
     {{ contato.nome }}
@@ -9,21 +15,42 @@
   </h3>
 
   <ul class="list-group mb-3">
-    <li class="list-group-item"><strong>Telefone:</strong> {{ contato.telefone }}</li>
-    <li class="list-group-item"><strong>Email:</strong> {{ contato.email }}</li>
-    <li class="list-group-item"><strong>Endereço:</strong> {{ contato.endereco }}</li>
-    <li class="list-group-item"><strong>Cidade:</strong> {{ contato.cidade }}</li>
-    <li class="list-group-item"><strong>Categoria:</strong> {{ contato.categoria }}</li>
-    <li class="list-group-item"><strong>Empresa:</strong> {{ contato.empresa }}</li>
-    <li class="list-group-item"><strong>Cargo:</strong> {{ contato.cargo }}</li>
-    <li class="list-group-item"><strong>Notas:</strong> {{ contato.notas }}</li>
+    <li class="list-group-item">
+      <strong>Telefone:</strong> {{ contato.telefone }}
+    </li>
+    <li class="list-group-item">
+      <strong>Email:</strong> {{ contato.email }}
+    </li>
+    <li class="list-group-item">
+      <strong>Endereço:</strong> {{ contato.endereco }}
+    </li>
+    <li class="list-group-item">
+      <strong>Cidade:</strong> {{ contato.cidade }}
+    </li>
+    <li class="list-group-item">
+      <strong>Categoria:</strong> {{ contato.categoria }}
+    </li>
+    <li class="list-group-item">
+      <strong>Empresa:</strong> {{ contato.empresa }}
+    </li>
+    <li class="list-group-item">
+      <strong>Cargo:</strong> {{ contato.cargo }}
+    </li>
+    <li class="list-group-item">
+      <strong>Notas:</strong> {{ contato.notas }}
+    </li>
   </ul>
 
   <div class="d-flex">
-    <a [routerLink]="['/contato', contato.id, 'editar']" class="btn btn-primary me-2">
+    <a
+      [routerLink]="['/contato', contato.id, 'editar']"
+      class="btn btn-primary me-2"
+    >
       Editar
     </a>
-    <button class="btn btn-danger me-auto" (click)="excluir()">Excluir</button>
+    <button class="btn btn-danger me-auto" (click)="excluir()">
+      Excluir
+    </button>
     <a routerLink="/" class="btn btn-secondary">Voltar</a>
   </div>
 </div>
