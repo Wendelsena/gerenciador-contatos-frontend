@@ -1,1 +1,57 @@
-<p>contact-form works!</p>
+<div class="container my-4">
+  <h3>{{ contatoId ? 'Editar Contato' : 'Novo Contato' }}</h3>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-6 mb-3" *ngFor="let field of [
+          {name:'nome', label:'Nome', type:'text'},
+          {name:'telefone', label:'Telefone', type:'text'},
+          {name:'email', label:'Email', type:'email'},
+          {name:'endereco', label:'Endereço', type:'text'},
+          {name:'cidade', label:'Cidade', type:'text'}
+        ]">
+        <label class="form-label">{{ field.label }}</label>
+        <input
+          [type]="field.type"
+          class="form-control"
+          [formControlName]="field.name"
+        />
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label class="form-label">Categoria</label>
+        <select class="form-select" formControlName="categoria">
+          <option value="">Selecione…</option>
+          <option *ngFor="let cat of categorias" [value]="cat">{{ cat }}</option>
+        </select>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" formControlName="favorito" id="fav"/>
+          <label class="form-check-label" for="fav">Favorito</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- campos adicionais: notas, empresa, cargo... -->
+    <div class="mb-3">
+      <label class="form-label">Notas</label>
+      <textarea class="form-control" rows="3" formControlName="notas"></textarea>
+    </div>
+    <div class="mb-3 row">
+      <div class="col-md-6">
+        <label class="form-label">Empresa</label>
+        <input type="text" class="form-control" formControlName="empresa"/>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Cargo</label>
+        <input type="text" class="form-control" formControlName="cargo"/>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success">
+      {{ contatoId ? 'Atualizar' : 'Cadastrar' }}
+    </button>
+    <a routerLink="/" class="btn btn-secondary ms-2">Cancelar</a>
+  </form>
+</div>
