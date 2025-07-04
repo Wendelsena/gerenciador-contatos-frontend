@@ -43,7 +43,7 @@ export class ContatoService {
   }
 
   search(term: string): Observable<Contato[]> {
-    return this.http.get<Contato[]>(`${this.apiUrl}/search?termo=${term}`);
+    return this.http.get<Contato[]>(`${this.apiUrl}/pesquisa?termo=${term}`);
   }
 
   getByCategoria(cat: string): Observable<Contato[]> {
