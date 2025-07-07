@@ -18,7 +18,7 @@ export interface Contato {
 
 @Injectable({ providedIn: 'root' })
 export class ContatoService {
-  private apiUrl = 'http://localhost:8080/contatos';
+  private apiUrl = 'https://contatos.duckdns.org/contatos';
 
   constructor(private http: HttpClient) { }
 
