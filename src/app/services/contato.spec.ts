@@ -1,16 +1,19 @@
 import { TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ContatoService } from './contato';
 
-import { Contato } from './contato';
-
-describe('Contato', () => {
-  let service: Contato;
+describe('ContatoService', () => {
+  let service: ContatoService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(Contato);
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [ContatoService]
+    });
+    service = TestBed.inject(ContatoService);
   });
 
-  it('should be created', () => {
+  it('deve ser criado', () => {
     expect(service).toBeTruthy();
   });
 });
